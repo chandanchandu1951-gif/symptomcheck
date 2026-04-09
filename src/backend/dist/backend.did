@@ -1,0 +1,61 @@
+type TriageLevel = 
+ variant {
+   er;
+   selfCare;
+   telehealth;
+   urgentCare;
+ };
+type SymptomId = nat;
+type SymptomAnswer = 
+ record {
+   answerId: text;
+   questionId: QuestionId;
+ };
+type Symptom = 
+ record {
+   bodyRegion: BodyRegion;
+   description: text;
+   id: SymptomId;
+   name: text;
+ };
+type QuestionId = nat;
+type FollowUpQuestion = 
+ record {
+   answerOptions: vec AnswerOption;
+   id: QuestionId;
+   questionText: text;
+   symptomId: SymptomId;
+ };
+type ConditionId = nat;
+type Condition = 
+ record {
+   confidenceScore: nat;
+   description: text;
+   id: ConditionId;
+   name: text;
+   triageLevel: TriageLevel;
+   whenToSeeDoctor: text;
+ };
+type BodyRegion = 
+ variant {
+   abdomen;
+   back;
+   chest;
+   general;
+   head;
+   limbs;
+   skin;
+   throat;
+ };
+type AnswerOption = 
+ record {
+   id: text;
+   "text": text;
+ };
+service : {
+  analyzeSymptoms: (symptomIds: vec SymptomId, answers: vec SymptomAnswer) ->
+   (vec Condition) query;
+  getFollowUpQuestions: (symptomIds: vec SymptomId) ->
+   (vec FollowUpQuestion) query;
+  getSymptoms: () -> (vec Symptom) query;
+}

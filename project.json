@@ -1,0 +1,21 @@
+{
+  "overview": "A web-based symptom checker that guides users through a structured assessment — entering demographics, selecting symptoms, answering follow-up questions — and returns a prioritized list of possible conditions with triage recommendations.",
+  "features": [
+    "Age and gender input with medical disclaimer acceptance",
+    "Symptom search with autocomplete and quick-add buttons",
+    "Interactive body diagram for region-based symptom filtering",
+    "Dynamic follow-up interview with progress tracking",
+    "Results page with ranked conditions, confidence scores, and triage levels",
+    "Start new assessment flow from results screen"
+  ],
+  "category": "health",
+  "tags": [
+    "symptoms",
+    "health",
+    "checker",
+    "triage",
+    "medical",
+    "assessment"
+  ],
+  "last_updated": "2026-04-09T18:08:52.673Z"
+}
